@@ -14,6 +14,7 @@ class Orders {
             }
         });
         stmt.finalize();
+        db.close()
     }
     newOrderFile(orderid,file_name,original_file_name){
         const db = new Database()
@@ -47,6 +48,7 @@ class Orders {
             }
         })
         stmt2.finalize();
+        db.close()
     }
     getAllOrders(){
         const db = new Database()
@@ -58,6 +60,7 @@ class Orders {
                 return rows
             }
         })
+        db.close()
 
     }
 
@@ -71,7 +74,7 @@ class Orders {
                 return rows
             }
         })
-
+        db.close()
     }
 
     UpdateTeacherByOrderID(orderid,teacher_id){
@@ -84,6 +87,7 @@ class Orders {
                 return teacher_id
             }
         })
+        db.close()
     }
     UpdateStatusByOrderID(orderid,status){
         const db = new Database()
@@ -95,6 +99,7 @@ class Orders {
                 return orderid
             }
         })
+        db.close()
         
     }
     UpdateValueByOrderID(orderid,value){
@@ -107,6 +112,7 @@ class Orders {
                 return orderid
             }
         })
+        db.close()
     }
     getAllOrdersByTeacherID(teacher_id){
         const db = new Database()
@@ -118,6 +124,7 @@ class Orders {
                 return rows
             }
         })
+        db.close()
     }
     getOrderByID(orderid){
         const db = new Database()
@@ -129,6 +136,7 @@ class Orders {
                 return rows
             }
         })
+        db.close()
     }
 
     getOrderDetailsByID(orderid){
@@ -141,6 +149,7 @@ class Orders {
                 return rows
             }
         })
+        db.close()
     }
 
     getOrderValueByID(orderid){
@@ -153,6 +162,7 @@ class Orders {
                 return rows
             }
         })
+        db.close()
     }
 
     getOrderFileByID(orderid){
@@ -165,6 +175,7 @@ class Orders {
                 return rows
             }
         })
+        db.close()
     }
 
     getAllOrdersByUserID(userid){
@@ -177,6 +188,7 @@ class Orders {
                 return rows
             }
         })
+        db.close()
     }
 
     addOrderToUser(orderid,userid){
@@ -191,5 +203,6 @@ class Orders {
             }
         });
         stmt.finalize();
+        db.close()
     }
 }

@@ -15,6 +15,7 @@ class User{
             }
         });
         stmt.finalize();
+        db.close()
     }
     UpdateContactByUserID(contact,userid){
         const db = new Database()
@@ -26,6 +27,7 @@ class User{
                 return userid
             }
         })
+        db.close()
     }
     UpdatePasswordByUserID(password,userid){
         const db = new Database()
@@ -37,5 +39,6 @@ class User{
                 return userid
             }
         })
+        db.close()
     }
 }

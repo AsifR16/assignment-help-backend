@@ -15,6 +15,6 @@ class Auth{
                 }
             }
         });
-        
+        db.close()
     }
 }

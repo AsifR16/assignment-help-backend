@@ -21,7 +21,7 @@ router.get("/orders/files", (req, res) => {
     }
 })
 
-router.update("/orders/update-teacher", (req, res) => {
+router.post("/orders/update-teacher", (req, res) => {
     const teacherid = req.body.teacherid
     const orderid = req.body.orderid
     if (typeof (req.body.authKey) != "undefined" && Auth.exists(req.body.authKey)) {
@@ -37,7 +37,7 @@ router.update("/orders/update-teacher", (req, res) => {
 
 })
 
-router.update("/orders/update-status", (req, res) => {
+router.post("/orders/update-status", (req, res) => {
     const status = req.body.status
     const orderid = req.body.orderid
     if (typeof (req.body.authKey) != "undefined" && Auth.exists(req.body.authKey)) {
@@ -53,7 +53,7 @@ router.update("/orders/update-status", (req, res) => {
 
 })
 
-router.update("/orders/update-value", (req, res) => {
+router.post("/orders/update-value", (req, res) => {
     const value = req.body.value
     const orderid = req.body.orderid
     if (typeof (req.body.authKey) != "undefined" && Auth.exists(req.body.authKey)) {

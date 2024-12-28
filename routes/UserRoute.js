@@ -14,7 +14,7 @@ router.post("/add",(req,res)=>{
     }
 })
 
-router.update("/update-contact",(req,res)=>{
+router.post("/update-contact",(req,res)=>{
     const userid=req.body.userid
     const contact=req.body.contact
     let result = User.UpdateContactByUserID(contact,userid)
@@ -25,7 +25,7 @@ router.update("/update-contact",(req,res)=>{
     }
 })
 
-router.update("/update-password",(req,res)=>{
+router.post("/update-password",(req,res)=>{
     const userid=req.body.userid
     const password=req.body.password
     let result = User.UpdatePasswordByUserID(password,userid)
