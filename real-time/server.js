@@ -1,23 +1,24 @@
 const { Server } = require("socket.io");
 
-const io = new Server({ /* options */ });
+const io = new Server({
+    cors: {
+        origin: ['null','*'],
+        methods: ['GET', 'POST'],
+      }
+});
 
 io.on("connection", (socket) => {
     console.log('A user connected');
 
-    socket.send("Hello, How can I help you today?")
-    socket.on("message-from-client",function(data){
-        socket.join(data.ip)
-        io.sockets.in(data.ip).emit("message-to-client",{message:data.message})
+    socket.on("message-from-client",function(payload){
+        io.emit("message-to-superclient",{id:payload.id,message:payload.message})
     })
-
-    socket.on("send-message-to-client",function(data){
-        socket.emit()
+    socket.on("message-to-client",function(payload){
+        socket.to(payload.id).emit("message-from-server",{id:payload.id,message:payload.message})
     })
-
     socket.on("disconnect",function(){
         console.log("User disconnected")
     })
 });
-
-io.listen(3000);
+console.log("IO Server running on 3000");
+io.listen(3000)
